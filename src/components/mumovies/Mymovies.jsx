@@ -1,9 +1,13 @@
-import { Box, Card, CardContent, CardHeader, Grid, IconButton, Typography } from '@mui/material'
+import { Box, Card, CardContent, CardHeader, Grid, IconButton, styled, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import CommonCard from './CommonCard'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Avatar } from '@mui/material';
 import axios from "axios"
+const BoldText = styled(Typography)(({ theme }) => ({
+fontSize:'29', fontWeight:'600'
+}))
+
 function Mymovies() {
   const [movedata,setMovedata]= useState([])
   useEffect(()=>{
@@ -15,15 +19,15 @@ function Mymovies() {
   return (
     <Box margin={'10px 0px'}>
       
-      <Typography sx={{fontSize:'29', fontWeight:'600'}}>
+      <BoldText>
       My Movies
-        </Typography>
+        </BoldText>
 {movedata?.map((mydata)=>{
   return(<>
   <Grid container margin={'30px 0px'}>
       <Grid xs={3}>
        <Box sx={{}}>
-        <Typography sx={{fontSize:'29', fontWeight:'600'}}>From</Typography>
+        <BoldText>From</BoldText>
         <Typography>{mydata?.moving_from}</Typography>
        </Box>
       </Grid>
@@ -33,7 +37,7 @@ function Mymovies() {
       </Grid>
       <Grid xs={3}>
         <Box sx={{}}>
-        <Typography sx={{fontSize:'29', fontWeight:'600'}}>To</Typography>
+        <BoldText>To</BoldText>
         <Typography>{mydata.moving_to}</Typography>
        </Box>
       </Grid>
@@ -41,7 +45,7 @@ function Mymovies() {
      
       <Grid xs={3}>
         <Box sx={{}}>
-        <Typography sx={{fontSize:'29', fontWeight:'600'}}>Request#</Typography>
+        <BoldText>Request#</BoldText>
         <Typography>{mydata?.estimate_id}</Typography>
        </Box>
       </Grid>
